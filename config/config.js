@@ -3,7 +3,7 @@ import {config} from 'dotenv'
 
 
 config()
-const PORT = process.env.PORT || 3000
+
 const pool = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
