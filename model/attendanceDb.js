@@ -30,3 +30,4 @@ const updateAttendance = async (attendance_id, employee_id, date, attendance_sta
 }
 
 export {getAttendance, getSingleAttendance, insertAttendance, removeAttendance, updateAttendance}
+
