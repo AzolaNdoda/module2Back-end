@@ -10,8 +10,8 @@ const getSingleEmployee = async (employee_id)=>{
     return data
 }
 
-const insertEmployee = async(name, gender, position, salary, email, department_id)=>{
-    await pool.query('INSERT INTO `hr_system`.`employees` (`name`, `gender`, `position`, `salary`, `email`, `department_id`) VALUES (?, ?, ?, ?, ?, ?',[name, gender, position, salary, email, department_id])
+const insertEmployee = async(name, gender, position, salary, employmentHistory, email, department_id)=>{
+    await pool.query('INSERT INTO `hr_system`.`employees` (`name`, `gender`, `position`, `salary`, `employmentHistory`, `email`, `department_id`) VALUES (?, ?, ?, ?, ?, ?',[name, gender, position, salary, employmentHistory, email, department_id])
 }
 
 const removeEmployee = async (employee_id)=>{
