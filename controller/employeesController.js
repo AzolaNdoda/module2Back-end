@@ -9,9 +9,9 @@ const getSingleEmployeeCon = async(req,res)=>{
 }
 
 const insertEmployeeCon = async(req,res)=>{
-    let {employee_id, name, position, salary, email, department_id} = req.body
+    let {employee_id, name, gender, position, salary, email, department_id} = req.body
 
-    res.json({employees: await insertEmployee(employee_id, name, position, salary, email, department_id)})
+    res.json({employees: await insertEmployee(employee_id, name, gender, position, salary, email, department_id)})
 }
 
 const updateEmployeeCon = async(req,res)=>{
