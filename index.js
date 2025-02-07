@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
+import morgan from 'morgan'
 import employeesRouter from './routes/employeesRouter.js'
 import departmentRouter from './routes/departmentRouter.js'
 import attendanceRouter from './routes/attendanceRouter.js'
@@ -12,6 +14,8 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(helmet())
+app.use(morgan('combined'))
 
 app.use('/employees',employeesRouter)
 app.use('/department',departmentRouter)
