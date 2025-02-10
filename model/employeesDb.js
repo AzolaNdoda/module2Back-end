@@ -9,10 +9,10 @@ const getSingleEmployee = async (employee_id)=>{
     try {
         let [data] = await pool.query('SELECT * FROM hr_system.employees WHERE employee_id = ?', [employee_id]);
         return data;
-      } catch (error) {
+    } catch (error) {
         console.error("Error fetching employee:", error);
         throw error;
-      }
+    }
 }
 
 const insertEmployee = async(name, gender, position, salary, employmentHistory, email, department_id)=>{
