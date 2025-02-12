@@ -18,7 +18,7 @@ const getSingleEmployee = async (employee_id)=>{
 const insertEmployee = async(name, gender, position, salary, employmentHistory, email, department_id)=>{
     await pool.query('INSERT INTO `hr_system`.`employees` (`name`, `gender`, `position`, `salary`, `employmentHistory`, `email`, `department_id`) VALUES (?, ?, ?, ?, ?, ?',[name, gender, position, salary, employmentHistory, email, department_id])
 
-    return { employee: employee_id, name, position, salary };
+    return {employee:name, gender, position, salary, employmentHistory, email, department_id };
 
 }
 
@@ -28,8 +28,8 @@ return result.affectedRows > 0 ? "Employee removed successfully" : "Employee not
 
 }
 
-const updateEmployee = async (employee_id,position,salary,department_id)=>{
-    await pool.query('UPDATE `hr_system`.`employees` SET `position` = ?, `salary` = ?, `department_id` = ? WHERE `employee_id` = ?',[employee_id,position,salary, department_id])
+const updateEmployee = async (position,salary,department_id,employee_id)=>{
+    await pool.query('UPDATE `hr_system`.`employees` SET `position` = ?, `salary` = ?, `department_id` = ? WHERE `employee_id` = ?',[position,salary, department_id,employee_id])
 
     return await getEmployees()
 
