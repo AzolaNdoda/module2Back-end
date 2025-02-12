@@ -1,8 +1,9 @@
-import mysql from 'mysql2/promise'
-import {config} from 'dotenv'
+const  mysql = require('mysql2') 
+const dotenv = require('dotenv')
+// import {config} from 'dotenv'
 
 
-config()
+dotenv.config()
 
 const pool = mysql.createPool({
     host: process.env.HOST,
@@ -11,4 +12,14 @@ const pool = mysql.createPool({
     database: process.env.DATABASE
 })
 
-export {pool}
+// export {pool}
+
+// pool.connect((err) => {
+//     if (err) {
+//       console.error("Database connection failed: " + err.stack);
+//       return;
+//     }
+//     console.log("Connected to MySQL database.");
+//   });
+  
+  module.exports = pool;
