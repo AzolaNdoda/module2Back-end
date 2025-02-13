@@ -1,23 +1,14 @@
-import { getEmployees, getSingleEmployee, insertEmployee, updateEmployee, removeEmployee } from "../model/employeesDb.js"
-
-const getEmployeesCon = async (req, res) => {
-    try {
-        const employees = await getEmployees();
-        res.status(200).json(employees);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching employees" });
-    }
-};
+const { getSingleEmployee, insertEmployee, updateEmployee, removeEmployee } = require('../services/employeeService'); 
 
 const getSingleEmployeeCon = async (req, res) => {
     const { employee_id } = req.params;
     try {
         const employee = await getSingleEmployee(employee_id);
         if (employee) {
-        res.status(200).json(employee);
-    } else {
-        res.status(404).json({ message: "Employee not found" });
-    }
+            res.status(200).json(employee);
+        } else {
+            res.status(404).json({ message: "Employee not found" });
+        }
     } catch (error) {
         res.status(500).json({ message: "Error fetching employee details" });
     }
@@ -54,4 +45,10 @@ const removeEmployeeCon = async (req, res) => {
     }
 };
 
-export {getEmployeesCon, getSingleEmployeeCon, insertEmployeeCon, updateEmployeeCon, removeEmployeeCon}
+// ✅ Export using CommonJS syntax
+module.exports = { 
+    getSingleEmployeeCon, 
+    insertEmployeeCon, 
+    updateEmployeeCon, 
+    removeEmployeeCon 
+};

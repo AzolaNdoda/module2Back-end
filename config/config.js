@@ -1,6 +1,6 @@
 const  mysql = require('mysql2') 
 const dotenv = require('dotenv')
-// import {config} from 'dotenv'
+//  import {config} from 'dotenv'
 
 
 dotenv.config()
@@ -12,7 +12,7 @@ const pool = mysql.createPool({
     database: process.env.DATABASE
 })
 
-// export {pool}
+    export {pool}
 
 // pool.connect((err) => {
 //     if (err) {
@@ -23,3 +23,5 @@ const pool = mysql.createPool({
 //   });
   
   module.exports = pool;
+
+  
